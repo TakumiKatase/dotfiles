@@ -1,0 +1,4 @@
+indentLine
+lightline.vim
+neobundle.vim
+vim-trailing-whitespace
