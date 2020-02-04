@@ -54,6 +54,7 @@ git clone https://github.com/TakumiKatase/dotfiles.git
 cd dotfiles
 ```
 
+- シンボリックリンクをつくる
 ```
 sh dotfielsLink.sh
 ```
