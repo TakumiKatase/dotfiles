@@ -40,7 +40,7 @@ source ~/.zshrc
 ```
 たぶんできてるはず。
 
-- GitHubからクローン
+# GitHubからクローン
 
 ```
 cd
