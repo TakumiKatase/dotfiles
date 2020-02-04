@@ -1,16 +1,16 @@
 # prezto導入
 
 - ログインシェルの変更
-```chsh -s /bin/zsh```
+```$ chsh -s /bin/zsh```
 
 - リモートリポジトリからpreztoをクローン
 ```
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" 
+$ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" 
 ```
 
 - preztoの初期設定みたいなの(シンボリックリンクをなんかしてる)
 ```
-setopt EXTENDED_GLOB
+$ setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
@@ -18,7 +18,7 @@ done
 
 - autosuggestionsを有効にする
 ```
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+$ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 ```
 ```
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -28,35 +28,35 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 - syntaxhighligthingを有効にする
 ```
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 ```
 
 ```
-source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+$ source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ```
 最後に
 ```
-source ~/.zshrc
+$ source ~/.zshrc
 ```
 たぶんできてるはず。
 
 # GitHubからクローン
 
 ```
-cd
+$ cd
 ```
 
 ```
-git clone https://github.com/TakumiKatase/dotfiles.git
+$ git clone https://github.com/TakumiKatase/dotfiles.git
 ```
 
 ```
-cd dotfiles
+$ cd dotfiles
 ```
 
 - シンボリックリンクをつくる
 ```
-sh dotfielsLink.sh
+$ sh dotfielsLink.sh
 ```
 
 - vim-hybridの有効化
