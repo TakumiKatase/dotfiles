@@ -56,7 +56,7 @@ $ cd dotfiles
 
 - シンボリックリンクをつくる
 ```
-$ sh dotfielsLink.sh
+$ sh dotfilesLink.sh
 ```
 
 - vim-hybridの有効化
