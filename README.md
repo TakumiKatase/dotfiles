@@ -40,7 +40,7 @@ $ source ~/.zshrc
 ```
 たぶんできてるはず。
 
-# GitHubからクローン
+# GitHubからvimの設定を
 
 ```
 $ cd
