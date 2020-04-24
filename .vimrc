@@ -4,12 +4,14 @@ set fileencoding=utf-8 "保存時の文字コード
 set ambiwidth=double "□や○文字が崩れる問題を解決
 
 "タブ/インデント
+filetype plugin indent on " ファイルタイプに基づいた院でとを有効か
 set expandtab " タブ入力を複数の空白入力に置き換える
-set tabstop=2 " 画面上でタブが占める幅
-set softtabstop=2 " 連続した空白に対してタブきーやバックスペースキーでカーソルが動く幅
+set tabstop=4 " 画面上でタブが占める幅
+set softtabstop=4 " 連続した空白に対してタブきーやバックスペースキーでカーソルが動く幅
 set autoindent " 改行時に前の行のインデントを継続する
 set smartindent " 改行に前の行の構文をテェックし次の行のインデントを増幅する
-set shiftwidth=2 " smartindentで増減する幅
+set shiftwidth=4 " smartindentで増減する幅
+set backspace=2
 
 " 文字列検索
 set incsearch " インクリメンタルサーチ、1文字入力ごとに検索を行う
