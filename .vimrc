@@ -22,9 +22,12 @@ set hlsearch
 " ESCキー2度押しでハイライトの切り替え
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
+autocmd ColorScheme * highlight Normal ctermbg=none
+autocmd ColorScheme * highlight LineNr ctermbg=none
+
 "let g:hybrid_use_iTerm_colors = 1
 colorscheme hybrid
-"set background=dark コメントアウトを解除するとダークモードに
+set background=dark " コメントアウトを解除するとダークモードに
 syntax on
 
 set cursorline
@@ -77,6 +80,14 @@ set statusline+={fugitive#statusline()}
 imap { {}<LEFT>
 imap [ []<LEFT>
 imap ( ()<LEFT>
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
+
+" javascript関係
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
+let g:javascript_plugin_jsdoc = 1
 
 call plug#end()
 
