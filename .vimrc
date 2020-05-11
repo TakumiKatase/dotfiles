@@ -34,7 +34,6 @@ set cursorline
 set number
 
 set nocompatible
-filetype plugin indent off
 
 if has('vim_starting')
 "入時にへ点滅の縦棒タイプのカーソ
@@ -66,9 +65,9 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 
 " タブ文字の表示はば
-set tabstop=2
+set tabstop=4
 " Vimが挿入するインデントの幅
-set shiftwidth=2
+set shiftwidth=4
 
 " ステータスラインの設定
 set laststatus=2 " ステータスラインを常に表示
@@ -87,7 +86,16 @@ inoremap ' ''<LEFT>
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
 let g:javascript_plugin_jsdoc = 1
+
+" Ruby
+" ログファイルを色付けしてくれる
+Plug 'vim-scripts/AnsiEsc.vim'
+" CSVをカラム単位に色分けする
+Plug 'mechatroner/rainbow_csv'
 
 call plug#end()
 
+" filetypeの自動検出(最後の方に書いたほうがいいらしい)
+filetype on
