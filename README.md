@@ -47,7 +47,7 @@ $ cd
 ```
 
 ```
-$ git clone https://github.com/TakumiKatase/dotfiles.git
+$ git clone https://github.com/devoc09/dotfiles.git
 ```
 
 ```
