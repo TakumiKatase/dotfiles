@@ -45,16 +45,22 @@ $ source ~/.zshrc
 ```
 $ cd
 ```
-
+- vim-plug導入
 ```
-$ git clone https://github.com/TakumiKatase/dotfiles.git
+$ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
+- devoc09のリポジトリから設定ファイルとってくる
+```
+$ git clone https://github.com/devoc09/dotfiles.git
+```
+
+- シンボリックリンクをつくる
 ```
 $ cd dotfiles
 ```
 
-- シンボリックリンクをつくる
 ```
 $ sh dotfilesLink.sh
 ```
