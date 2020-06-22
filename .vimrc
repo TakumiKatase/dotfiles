@@ -65,7 +65,6 @@ set autoindent " 改行時に前の行のインデントを継続する
 set smartindent " 言語に合わせて適切にインデントを自動挿入
 set shiftwidth=4 " smartindentで増減する幅
 set softtabstop=4 " 連続した空白に対してタブきーやバックスペースキーでカーソルが動く幅
-set autochdir " カレントディレクトリを自動で移動
 set smartindent " 改行に前の行の構文をテェックし次の行のインデントを増幅する
 set backspace=2
 
