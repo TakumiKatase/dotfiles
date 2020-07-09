@@ -56,6 +56,10 @@ Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
 let g:javascript_plugin_jsdoc = 1
 
 " Ruby
+Plug 'scrooloose/syntastic'
+let g:syntastic_mode_map = { 'mode': 'passive',
+            \ 'active_filetypes': ['ruby']}
+let g:syntastic_ruby_checkers = ['rubocop']
 " ログファイルを色付けしてくれる
 Plug 'vim-scripts/AnsiEsc.vim'
 " CSVをカラム単位に色分けする
