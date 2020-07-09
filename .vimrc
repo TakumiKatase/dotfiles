@@ -61,6 +61,9 @@ Plug 'vim-scripts/AnsiEsc.vim'
 " CSVをカラム単位に色分けする
 Plug 'mechatroner/rainbow_csv'
 
+"Go
+Plug 'fatih/vim-go'
+
 call plug#end()
 
 "タブ/インデント
