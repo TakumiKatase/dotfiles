@@ -11,21 +11,20 @@ Plug 'Shougo/neobundle.vim'
 
 " ステータスラインの表示内容強化
 Plug 'itchyny/lightline.vim'
+let g:lightline = {'colorscheme': 'onedark'}
 Plug 'bronson/vim-trailing-whitespace'
 " Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
+Plug 'joshdick/onedark.vim'
+
 " インデントに色をつけて見やすくする
 Plug 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup = 1
 set ts=4 sw=4 et
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
-" vim-airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-let g:AirlineTheme = 'luna'
 
 " シングルクオートとダブルクオートの入れ替えなど
 Plug 'tpope/vim-surround'
@@ -92,7 +91,7 @@ autocmd ColorScheme * highlight Normal ctermbg=none
 autocmd ColorScheme * highlight LineNr ctermbg=none
 
 let g:hybrid_use_iTerm_colors = 1
-colorscheme hybrid
+colorscheme onedark
 set background=dark " コメントアウトを解除するとダークモードに
 syntax on
 
