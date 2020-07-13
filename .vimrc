@@ -40,13 +40,6 @@ set showmode " 現在のモードを表示
 set showcmd " 打ったコマンドをステータスラインの下に表示
 set statusline+={fugitive#statusline()}
 
-" 自動的に閉じ括弧を入力
-imap { {}<LEFT>
-imap [ []<LEFT>
-imap ( ()<LEFT>
-inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
-
 " javascript関係
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
