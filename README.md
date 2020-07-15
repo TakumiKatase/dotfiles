@@ -60,16 +60,15 @@ $ git clone https://github.com/devoc09/dotfiles.git
 ```
 $ cd dotfiles
 ```
+- imwheelのインストール
+```
+$ sudo apt install imwheel
+```
 
 ```
 $ sh dotfilesLink.sh
 ```
 
-- vim-hybridの有効化
 ```
-$ git clone https://github.com/w0ng/vim-hybrid
-```
-
-```
-$ mv vim-hybrid/colors/hybrid.vim ~/.vim/colors
+$ imwheel
 ```
