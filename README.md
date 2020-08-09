@@ -3,14 +3,14 @@
 - ログインシェルの変更
 ```$ chsh -s /bin/zsh```
 
-- リモートリポジトリからpreztoをクローン
-```
-$ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" 
-```
-
 - zsh関係のファイルを事前に削除
 ```
 rm -rf ~/.zprezto ~/.zlogin ~/.zlogout ~/.zpreztorc ~/.zprofile ~/.zshenv ~/.zshrc
+```
+
+- リモートリポジトリからpreztoをクローン
+```
+$ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" 
 ```
 
 - preztoの初期設定みたいなの(シンボリックリンクをなんかしてる)
