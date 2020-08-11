@@ -3,17 +3,17 @@
 - ログインシェルの変更
 ```$ chsh -s /bin/zsh```
 
-- zsh関係のファイルを事前に削除
+- remove zsh files
 ```
 rm -rf ~/.zprezto ~/.zlogin ~/.zlogout ~/.zpreztorc ~/.zprofile ~/.zshenv ~/.zshrc
 ```
 
-- リモートリポジトリからpreztoをクローン
+- clone prezto from remote repository
 ```
 $ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" 
 ```
 
-- preztoの初期設定みたいなの(シンボリックリンクをなんかしてる)
+- first setting prezto (シンボリックリンクをなんかしてる)
 ```
 $ setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
@@ -21,7 +21,7 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
 done
 ```
 
-- autosuggestionsを有効にする
+- enable autosuggestions
 ```
 $ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 ```
@@ -31,7 +31,7 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 を.zshrcに追加
 
 
-- syntaxhighligthingを有効にする
+- enable syntaxhighligthing
 ```
 $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 ```
@@ -45,18 +45,18 @@ $ source ~/.zshrc
 ```
 たぶんできてるはず。
 
-# GitHubからvimの設定を
+# vim setting
 
 ```
 $ cd
 ```
-- vim-plug導入
+- vim-plug
 ```
 $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-- devoc09のリポジトリから設定ファイルとってくる
+- clone dotfiles from devoc09's repository
 ```
 $ git clone https://github.com/devoc09/dotfiles.git
 ```
