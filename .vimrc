@@ -56,9 +56,23 @@ let g:syntastic_ruby_checkers = ['rubocop']
 Plug 'vim-scripts/AnsiEsc.vim'
 " CSVをカラム単位に色分けする
 Plug 'mechatroner/rainbow_csv'
+"< to <% and > to %> in erb file type
+Plug 'devoc09/vim-erb'
+" for rails
+Plug 'tpope/vim-rails'
 
 "Go
 Plug 'fatih/vim-go'
+
+"Be comment string
+Plug 'devoc09/vim-commenter'
+
+" Search Files
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Git
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -92,6 +106,17 @@ set cursorline
 set number
 
 set nocompatible
+
+" fzf key mapping
+nnoremap <silent> ,f :GFiles<CR>
+nnoremap <silent> ,F :GFiles?<CR>
+nnoremap <silent> ,b :Buffers<CR>
+nnoremap <silent> ,l :BLines<CR>
+nnoremap <silent> ,h :History<CR>
+nnoremap <silent> ,m :Mark<CR>
+
+" NERDTree command mapping
+nnoremap <silent> :NT :NERDTree<CR>
 
 if has('vim_starting')
 "入時にへ点滅の縦棒タイプのカーソ
