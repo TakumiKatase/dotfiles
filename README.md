@@ -1,6 +1,6 @@
-# prezto導入
+# Zsh settings
 
-- ログインシェルの変更
+- change login shell to zsh
 ```$ chsh -s /bin/zsh```
 
 - remove zsh files
@@ -10,7 +10,7 @@ rm -rf ~/.zprezto ~/.zlogin ~/.zlogout ~/.zpreztorc ~/.zprofile ~/.zshenv ~/.zsh
 
 - clone prezto from remote repository
 ```
-$ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" 
+$ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 ```
 
 - first setting prezto (シンボリックリンクをなんかしてる)
