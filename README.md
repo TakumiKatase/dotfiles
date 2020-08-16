@@ -1,3 +1,12 @@
+If you haven't installed git yet. youcan can use your os package manager
+Edit the files before installing git `mac.sh`, `arch.sh`, `debian.sh`
+- Mac use homebrew
+```$ sh git/mac.sh```
+- Arch use pacman
+```$ sh git/arch.sh```
+- Debian use apt
+```$ sh git/debian.sh```
+
 # Zsh settings
 
 - change login shell to zsh
@@ -29,6 +38,11 @@ $ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosugg
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ```
 を.zshrcに追加
+
+- enable git tab Complement for zsh
+```
+$ sh git/autoload.sh
+```
 
 
 - enable syntaxhighligthing
