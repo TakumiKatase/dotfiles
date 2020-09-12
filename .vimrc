@@ -40,6 +40,9 @@ set showmode " 現在のモードを表示
 set showcmd " 打ったコマンドをステータスラインの下に表示
 set statusline+={fugitive#statusline()}
 
+" clopboard setting
+set clipboard+=unnamed
+
 " javascript関係
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
