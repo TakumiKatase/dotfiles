@@ -118,6 +118,10 @@ nnoremap <silent> ,l :BLines<CR>
 nnoremap <silent> ,h :History<CR>
 nnoremap <silent> ,m :Mark<CR>
 
+" Split window
+nmap ss :split<Return><C-w>w
+nmap sv :vsplit<Return><C-w>w
+
 " NERDTree command mapping
 nnoremap <silent> :NT :NERDTree<CR>
 
