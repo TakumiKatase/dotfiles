@@ -11,6 +11,25 @@ Plug 'Shougo/neobundle.vim'
 " resize plugin
 Plug 'simeji/winresizer'
 
+" auto-complete
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+let g:deoplete#enable_at_startup = 1
+" auto-complete for python
+Plug 'deoplete-plugins/deoplete-jedi'
+" auto-complete for vim
+Plug 'Shougo/neco-vim'
+" auto-complete for go
+Plug 'deoplete-plugins/deoplete-go'
+" auto-complete for ruby
+Plug 'osyo-manga/vim-monster'
+let g:monster#completion#backend = 'solargraph'
+let g:monster#completion#solargraph#backend = "async_solargraph_suggest"
+let g:deoplete#sources#omni#input_patterns = {
+\   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
+\}
+
 " ステータスラインの表示内容強化
 Plug 'itchyny/lightline.vim'
 let g:lightline = {'colorscheme': 'onedark'}
