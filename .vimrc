@@ -8,6 +8,8 @@ set ambiwidth=double "□や○文字が崩れる問題を解決
 call plug#begin('~/.vim/plugged')
 
 Plug 'Shougo/neobundle.vim'
+" resize plugin
+Plug 'simeji/winresizer'
 
 " ステータスラインの表示内容強化
 Plug 'itchyny/lightline.vim'
