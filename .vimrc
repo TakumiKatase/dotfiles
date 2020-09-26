@@ -29,6 +29,10 @@ let g:monster#completion#solargraph#backend = "async_solargraph_suggest"
 let g:deoplete#sources#omni#input_patterns = {
 \   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
 \}
+" auto-complete for html
+Plug 'mattn/emmet-vim'
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
 
 " ステータスラインの表示内容強化
 Plug 'itchyny/lightline.vim'
@@ -128,7 +132,6 @@ set background=dark " コメントアウトを解除するとダークモード�
 syntax on
 
 set cursorline
-set number
 
 set nocompatible
 
