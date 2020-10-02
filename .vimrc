@@ -29,6 +29,7 @@ let g:monster#completion#solargraph#backend = "async_solargraph_suggest"
 let g:deoplete#sources#omni#input_patterns = {
 \   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
 \}
+Plug 'takkii/Bignyanco'
 " auto-complete for html
 Plug 'mattn/emmet-vim'
 let g:user_emmet_install_global = 0
