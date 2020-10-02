@@ -37,6 +37,10 @@ $ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosugg
 ```
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ```
+- add alias tmux ide setting
+```
+alias ide="~/dotfiles/ide.sh"
+```
 を.zshrcに追加
 
 - enable git tab Complement for zsh
