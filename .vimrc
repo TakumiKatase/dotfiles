@@ -23,12 +23,6 @@ Plug 'Shougo/neco-vim'
 " auto-complete for go
 Plug 'deoplete-plugins/deoplete-go'
 " auto-complete for ruby
-Plug 'osyo-manga/vim-monster'
-let g:monster#completion#backend = 'solargraph'
-let g:monster#completion#solargraph#backend = "async_solargraph_suggest"
-let g:deoplete#sources#omni#input_patterns = {
-\   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
-\}
 Plug 'takkii/Bignyanco'
 " auto-complete for html
 Plug 'mattn/emmet-vim'
@@ -37,13 +31,14 @@ autocmd FileType html,css EmmetInstall
 
 " ステータスラインの表示内容強化
 Plug 'itchyny/lightline.vim'
-let g:lightline = {'colorscheme': 'onedark'}
+let g:lightline = {'colorscheme': 'iceberg'}
 Plug 'bronson/vim-trailing-whitespace'
 " Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
 Plug 'joshdick/onedark.vim'
+Plug 'cocopon/iceberg.vim'
 
 " インデントに色をつけて見やすくする
 Plug 'nathanaelkane/vim-indent-guides'
@@ -128,7 +123,7 @@ autocmd ColorScheme * highlight Normal ctermbg=none
 autocmd ColorScheme * highlight LineNr ctermbg=none
 
 let g:hybrid_use_iTerm_colors = 1
-colorscheme onedark
+colorscheme iceberg
 set background=dark " コメントアウトを解除するとダークモードに
 syntax on
 

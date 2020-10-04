@@ -39,7 +39,7 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ```
 - add alias tmux ide setting
 ```
-alias ide="~/dotfiles/ide.sh"
+alias ide="sh ~/dotfiles/ide.sh"
 ```
 を.zshrcに追加
 
