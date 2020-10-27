@@ -1,6 +1,5 @@
 if has('vim_starting')
-  set rtp+=~/.vim/plugged/vim-plug
-"入時にへ点滅の縦棒タイプのカーソ
+  set rtp+=~/.vim/plugged/vim-plug"入時にへ点滅の縦棒タイプのカーソ
   let &t_SI .= "\e[6 q"
 " ノーマルモード時に非点滅のブロックタイプのカーソル
   let &t_EI .= "\e[2 q"
@@ -21,22 +20,31 @@ set ambiwidth=double "□や○文字が崩れる問題を解決
 call plug#begin('~/.vim/plugged')
   Plug 'junegunn/vim-plug',{'dir': '~/.vim/plugged/vim-plug/autoload'}
   Plug 'prabirshrestha/async.vim'
-" Language Server Client
-  Plug 'prabirshrestha/vim-lsp'
-  Plug 'mattn/vim-lsp-settings'
 " Git
   Plug 'tpope/vim-fugitive'
 " ColorScheme
   Plug 'cocopon/iceberg.vim'
   Plug 'joshdick/onedark.vim'
-let g:lightline = {'colorscheme': 'iceberg'}
 " StatusLine
-  Plug 'itchyny/lightline.vim'
-" auto-complete
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'gkeep/iceberg-dark'
+Plug 'itchyny/lightline.vim'
+let g:lightline = {
+      \ 'colorscheme': 'icebergDark',
+      \ 'active': {
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ] ]
+      \ },
+      \ 'component': {
+      \   'charvaluehex': '0x%B'
+      \ },
+      \ }
 
-" auto-complete-end-for-ruby
+" AutoComplete
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 " for rails
 Plug 'ngmy/vim-rubocop'
@@ -44,9 +52,17 @@ Plug 'slim-template/vim-slim'
 
 Plug 'tpope/vim-endwise'
 
+" Filer
+Plug 'cocopon/vaffle.vim' " Simple-Filer
+
+" autocomplete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
 call plug#end()
 
 set clipboard+=unnamed
+filetype plugin indent on
+set belloff=all
 
 "タブ/インデント
 set expandtab " タブ入力を複数の空白入力に置き換える
@@ -56,6 +72,7 @@ set shiftwidth=4 " smartindentで増減する幅
 set softtabstop=4 " 連続した空白に対してタブきーやバックスペースキーでカーソルが動く幅
 set smartindent " 改行に前の行の構文をテェックし次の行のインデントを増幅する
 set backspace=2
+set sidescroll=2
 
 " 文字列検索
 set incsearch " インクリメンタルサーチ、1文字入力ごとに検索を行う
@@ -63,15 +80,45 @@ set ignorecase " 検索パターンに大文字小文字を区別しない
 set smartcase " 検索パターンに大文字を含んでいたら大文字小文字を区別する
 set hlsearch
 
+autocmd ColorScheme * highlight Normal ctermbg=none
+autocmd ColorScheme * highlight LineNr ctermbg=none
 colorscheme iceberg
-set background=dark " コメントアウトを解除するとダークモードに
-syntax on
 
-set cursorline
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+    \ }
+
+" note that if you are using Plug mapping you should not use `noremap` mappings.
+nmap <F5> <Plug>(lcn-menu)
+" Or map each action separately
+nmap <silent>K <Plug>(lcn-hover)
+nmap <silent> gd <Plug>(lcn-definition)
+nmap <silent> <F2> <Plug>(lcn-rename)
 
 " Split window
 nmap ss :split<Return><C-w>w
 nmap sv :vsplit<Return><C-w>w
 
+" Remap key
+inoremap <C-j> <C-[>
+nnoremap <S-h> ^
+nnoremap <S-l> $
+nnoremap <S-j> }
+nnoremap <S-k> {
+
+" for deoplete
+let g:deoplete#enable_at_startup = 1
+
+" Vaffle settings
+let g:vaffle_show_hidden_files = 1
+nnoremap <silent> :vaf :Vaffle
+
+set cmdheight=2
 set nocompatible
 filetype on
