@@ -24,21 +24,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
 " ColorScheme
   Plug 'cocopon/iceberg.vim'
-  Plug 'joshdick/onedark.vim'
 " StatusLine
 Plug 'gkeep/iceberg-dark'
 Plug 'itchyny/lightline.vim'
-let g:lightline = {
-      \ 'colorscheme': 'icebergDark',
-      \ 'active': {
-      \   'right': [ [ 'lineinfo' ],
-      \              [ 'percent' ],
-      \              [ 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ] ]
-      \ },
-      \ 'component': {
-      \   'charvaluehex': '0x%B'
-      \ },
-      \ }
+let g:lightline = { 'colorscheme': 'icebergDark' }
 
 " AutoComplete
 Plug 'autozimu/LanguageClient-neovim', {
@@ -57,6 +46,10 @@ Plug 'cocopon/vaffle.vim' " Simple-Filer
 
 " autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" rainbow
+Plug 'luochen1990/rainbow'
+let g:rainbow_active = 1
 
 call plug#end()
 
