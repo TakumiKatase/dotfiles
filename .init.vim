@@ -18,12 +18,12 @@ set fileencoding=utf-8 "保存時の文字コード
 set ambiwidth=double "□や○文字が崩れる問題を解決
 
 call plug#begin('~/.vim/plugged')
-  Plug 'junegunn/vim-plug',{'dir': '~/.vim/plugged/vim-plug/autoload'}
-  Plug 'prabirshrestha/async.vim'
+Plug 'junegunn/vim-plug',{'dir': '~/.vim/plugged/vim-plug/autoload'}
+Plug 'prabirshrestha/async.vim'
 " Git
-  Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 " ColorScheme
-  Plug 'cocopon/iceberg.vim'
+Plug 'cocopon/iceberg.vim'
 " StatusLine
 Plug 'gkeep/iceberg-dark'
 Plug 'itchyny/lightline.vim'
@@ -50,6 +50,9 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " rainbow
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1
+
+" devicons
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -100,6 +103,7 @@ nmap sv :vsplit<Return><C-w>w
 
 " Remap key
 inoremap <C-j> <C-[>
+vnoremap <C-j> <C-[>
 nnoremap <S-h> ^
 nnoremap <S-l> $
 nnoremap <S-j> }
@@ -108,10 +112,10 @@ nnoremap <S-k> {
 " for deoplete
 let g:deoplete#enable_at_startup = 1
 
-" Vaffle settings
+" Vaffle settigs
 let g:vaffle_show_hidden_files = 1
-nnoremap <silent> :vaf :Vaffle
+nmap sf :Vaffle<Return>
 
-set cmdheight=2
+set cmdheight=1
 set nocompatible
 filetype on
