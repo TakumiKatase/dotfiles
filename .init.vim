@@ -29,7 +29,7 @@ Plug 'gkeep/iceberg-dark'
 Plug 'itchyny/lightline.vim'
 let g:lightline = { 'colorscheme': 'icebergDark' }
 
-" AutoComplete
+" LanguageClient
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
@@ -50,9 +50,8 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " rainbow
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1
-
-" devicons
-Plug 'ryanoasis/vim-devicons'
+" auto-pairs
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
@@ -88,14 +87,14 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
     \ 'python': ['/usr/local/bin/pyls'],
     \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+    \ 'go': ['gopls'],
     \ }
 
 " note that if you are using Plug mapping you should not use `noremap` mappings.
 nmap <F5> <Plug>(lcn-menu)
 " Or map each action separately
-nmap <silent>K <Plug>(lcn-hover)
-nmap <silent> gd <Plug>(lcn-definition)
 nmap <silent> <F2> <Plug>(lcn-rename)
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 
 " Split window
 nmap ss :split<Return><C-w>w
