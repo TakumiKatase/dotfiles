@@ -83,8 +83,10 @@ colorscheme iceberg
 set hidden
 
 let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ 'javascript': ['typescript-language-server --stdio'],
+    \ 'typescript': ['typescript-language-server --stdio'],
+    \ 'javascript.jsx': ['typescript-language-server --stdio'],
+    \ 'typescript.tsx': ['typescript-language-server --stdio'],
     \ 'python': ['/usr/local/bin/pyls'],
     \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
     \ 'go': ['gopls'],
@@ -110,6 +112,7 @@ nnoremap <S-k> {
 
 " for deoplete
 let g:deoplete#enable_at_startup = 1
+set completeopt=menuone
 
 " Vaffle settigs
 let g:vaffle_show_hidden_files = 1
