@@ -55,7 +55,9 @@ Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
-set clipboard+=unnamed
+set number
+set cursorline
+set clipboard=unnamed
 filetype plugin indent on
 set belloff=all
 
@@ -83,13 +85,13 @@ colorscheme iceberg
 set hidden
 
 let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['typescript-language-server --stdio'],
-    \ 'typescript': ['typescript-language-server --stdio'],
-    \ 'javascript.jsx': ['typescript-language-server --stdio'],
-    \ 'typescript.tsx': ['typescript-language-server --stdio'],
+    \ 'javascript': ['~/.nodebrew/current/bin/typescript-language-server', '--stdio'],
+    \ 'typescript': ['~/.nodebrew/current/bin/typescript-language-server', '--stdio'],
+    \ 'javascript.jsx': ['~/.nodebrew/current/bin/typescript-language-server', '--stdio'],
+    \ 'typescript.tsx': ['~/.nodebrew/current/bin/typescript-language-server', '--stdio'],
     \ 'python': ['/usr/local/bin/pyls'],
     \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
-    \ 'go': ['gopls'],
+    \ 'go': ['~/go/bin/gopls'],
     \ }
 
 " note that if you are using Plug mapping you should not use `noremap` mappings.
