@@ -118,11 +118,7 @@ nnoremap <S-j> }
 
 " for deoplete
 let g:deoplete#enable_at_startup = 1
-set completeopt=menuone
-
-" Vaffle settigs
-let g:vaffle_show_hidden_files = 1
-nmap sf :Vaffle<Return>
+" set completeopt=menuone
 
 set cmdheight=1
 set nocompatible
