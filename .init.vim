@@ -42,7 +42,7 @@ Plug 'slim-template/vim-slim'
 Plug 'tpope/vim-endwise'
 
 " Filer
-Plug 'cocopon/vaffle.vim' " Simple-Filer
+Plug 'lambdalisue/fern.vim' "Powerful vim filer
 
 " autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -79,7 +79,10 @@ set hlsearch
 
 autocmd ColorScheme * highlight Normal ctermbg=none
 autocmd ColorScheme * highlight LineNr ctermbg=none
+
+set background=dark
 colorscheme iceberg
+syntax on
 
 " Required for operations modifying multiple buffers like rename.
 set hidden
@@ -98,6 +101,7 @@ let g:LanguageClient_serverCommands = {
 nmap <F5> <Plug>(lcn-menu)
 " Or map each action separately
 nmap <silent> <F2> <Plug>(lcn-rename)
+nnoremap <silent> @ :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 
 " Split window
@@ -109,8 +113,8 @@ inoremap <C-j> <C-[>
 vnoremap <C-j> <C-[>
 nnoremap <S-h> ^
 nnoremap <S-l> $
-nnoremap <S-j> }
 nnoremap <S-k> {
+nnoremap <S-j> }
 
 " for deoplete
 let g:deoplete#enable_at_startup = 1
