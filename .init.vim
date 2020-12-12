@@ -23,7 +23,7 @@ Plug 'prabirshrestha/async.vim'
 " Git
 Plug 'tpope/vim-fugitive'
 " ColorScheme
-Plug 'cocopon/iceberg.vim'
+Plug 'sainnhe/edge'
 " StatusLine
 Plug 'gkeep/iceberg-dark'
 Plug 'itchyny/lightline.vim'
@@ -77,12 +77,17 @@ set ignorecase " 検索パターンに大文字小文字を区別しない
 set smartcase " 検索パターンに大文字を含んでいたら大文字小文字を区別する
 set hlsearch
 
-autocmd ColorScheme * highlight Normal ctermbg=none
-autocmd ColorScheme * highlight LineNr ctermbg=none
-
-set background=dark
-colorscheme iceberg
 syntax on
+" Important!!
+if has('termguicolors')
+    set termguicolors
+endif
+
+" The configuration options should be placed before `colorscheme edge`.
+let g:edge_style = 'aura'
+let g:edge_disable_italic_comment = 1
+
+colorscheme edge
 
 " Required for operations modifying multiple buffers like rename.
 set hidden

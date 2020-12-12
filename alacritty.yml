@@ -1,0 +1,12 @@
+shell:
+    program: /bin/zsh
+
+font:
+    size: 16
+    normal:
+        family: HackGenNerd
+    bold:
+        family: HackGenNerd
+    italic:
+        family: HackGenNerd
+
