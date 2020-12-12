@@ -53,6 +53,10 @@ let g:rainbow_active = 1
 " auto-pairs
 Plug 'jiangmiao/auto-pairs'
 
+" FuzzyFinder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 set number

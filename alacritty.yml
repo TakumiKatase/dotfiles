@@ -9,4 +9,5 @@ font:
         family: HackGenNerd
     italic:
         family: HackGenNerd
-
+env:
+    TERM: alacritty
