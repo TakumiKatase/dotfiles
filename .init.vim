@@ -23,7 +23,7 @@ Plug 'prabirshrestha/async.vim'
 " Git
 Plug 'tpope/vim-fugitive'
 " ColorScheme
-Plug 'sainnhe/edge'
+Plug 'cocopon/iceberg.vim'
 " StatusLine
 Plug 'gkeep/iceberg-dark'
 Plug 'itchyny/lightline.vim'
@@ -87,11 +87,7 @@ if has('termguicolors')
     set termguicolors
 endif
 
-" The configuration options should be placed before `colorscheme edge`.
-let g:edge_style = 'aura'
-let g:edge_disable_italic_comment = 1
-
-colorscheme edge
+colorscheme iceberg
 
 " Required for operations modifying multiple buffers like rename.
 set hidden
@@ -127,7 +123,7 @@ nnoremap <S-j> }
 
 " for deoplete
 let g:deoplete#enable_at_startup = 1
-" set completeopt=menuone
+set completeopt=menuone
 
 set cmdheight=1
 set nocompatible
