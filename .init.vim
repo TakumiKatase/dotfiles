@@ -42,7 +42,11 @@ Plug 'slim-template/vim-slim'
 Plug 'tpope/vim-endwise'
 
 " Filer
+Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/fern.vim' "Powerful vim filer
+Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+Plug 'LumaKernel/fern-mapping-fzf.vim'
+Plug 'lambdalisue/fern-hijack.vim'
 
 " autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -128,8 +132,12 @@ set completeopt=menuone
 set cmdheight=1
 set nocompatible
 
+" for Fern.vim plugins
+let g:fern#renderer = "nerdfont"
+
 " Import self function
 source ~/.config/nvim/VimFiles/FuzzyFinder.vim
 source ~/.config/nvim/VimFiles/ToggleWindowSize.vim
+source ~/.config/nvim/VimFiles/startFernScripts.vim
 
 filetype on
