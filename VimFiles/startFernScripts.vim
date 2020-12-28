@@ -10,3 +10,5 @@ augroup fern-custom
     autocmd! *
     autocmd FileType fern call s:init_fern()
 augroup END
+
+nnoremap <silent>sf :Fern . -drawer<CR>
