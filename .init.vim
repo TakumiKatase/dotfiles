@@ -104,6 +104,7 @@ let g:LanguageClient_serverCommands = {
     \ 'python': ['/usr/local/bin/pyls'],
     \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
     \ 'go': ['~/go/bin/gopls'],
+    \ 'sql': ['/Users/katasetakumi/.nodebrew/current/bin/sql-language-server', 'up', '--method', 'stdio'],
     \ }
 
 " note that if you are using Plug mapping you should not use `noremap` mappings.
