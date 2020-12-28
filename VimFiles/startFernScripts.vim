@@ -3,7 +3,7 @@ function! s:init_fern() abort
   "nmap <buffer> <Plug>(fern-action-open) <Plug>(fern-action-open:select)
   set nonu
   nmap <buffer> o <Plug>(fern-action-open:vsplit)
-  nmap <buffer> so <Plug>(fern-action-open:select)<C-w>p
+  nmap <buffer> so <Plug>(fern-action-open:select)
 endfunction
 
 augroup fern-custom
