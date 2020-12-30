@@ -36,10 +36,10 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 
 " for rails
-Plug 'ngmy/vim-rubocop'
 Plug 'slim-template/vim-slim'
 
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-commentary'
 
 " Filer
 Plug 'lambdalisue/nerdfont.vim'
