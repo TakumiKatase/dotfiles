@@ -40,6 +40,7 @@ Plug 'slim-template/vim-slim'
 
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary'
+Plug 'alvan/vim-closetag'
 
 " Filer
 Plug 'lambdalisue/nerdfont.vim'
@@ -125,6 +126,10 @@ nnoremap <S-h> ^
 nnoremap <S-l> $
 nnoremap <S-k> {
 nnoremap <S-j> }
+nnoremap <Left> <C-w><<CR>
+nnoremap <Right> <C-w>><CR>
+nnoremap <Up> <C-w>+<CR>
+nnoremap <Down> <C-w>-<CR>
 
 " for deoplete
 let g:deoplete#enable_at_startup = 1
