@@ -42,8 +42,6 @@ function peco-src() {
 }
 zle -N peco-src
 
-export TERM=xterm-256color
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 autoload -Uz compinit && compinit
 
@@ -83,3 +81,6 @@ fbr() {
 }
 
 export TERM=xterm-256color
+ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=blue,underline
+ZSH_HIGHLIGHT_STYLES[precommand]=fg=blue,underline
+ZSH_HIGHLIGHT_STYLES[arg0]=fg=blue
