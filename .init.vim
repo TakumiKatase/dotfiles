@@ -116,8 +116,8 @@ nnoremap <silent> @ :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 
 " Split window
-nmap ss :split<Return><C-w>w
-nmap sv :vsplit<Return><C-w>w
+nmap <silent> ss :split<Return><C-w>w
+nmap <silent> sv :vsplit<Return><C-w>w
 
 " Remap key
 inoremap <C-j> <C-[>
@@ -131,6 +131,15 @@ nnoremap <Right> <C-w>><CR>
 nnoremap <Up> <C-w>+<CR>
 nnoremap <Down> <C-w>-<CR>
 
+" Move Windows.
+nnoremap sh <C-w>h
+nnoremap sk <C-w>k
+nnoremap sj <C-w>j
+nnoremap sl <C-w>l
+
+"Switch Tabs.
+nnoremap <silent> <S-Tab> :-tabnext<Return>
+nnoremap <silent> <Tab> :tabnext<Return>
 " for deoplete
 let g:deoplete#enable_at_startup = 1
 set completeopt=menuone
