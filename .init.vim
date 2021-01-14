@@ -87,6 +87,7 @@ set smartcase " 検索パターンに大文字を含んでいたら大文字小�
 set hlsearch
 
 syntax on
+
 " Important!!
 if has('termguicolors')
     set termguicolors
