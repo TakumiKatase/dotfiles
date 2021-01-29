@@ -19,7 +19,6 @@ set ambiwidth=double "□や○文字が崩れる問題を解決
 
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-plug',{'dir': '~/.vim/plugged/vim-plug/autoload'}
-Plug 'prabirshrestha/async.vim'
 " Git
 Plug 'tpope/vim-fugitive'
 " ColorScheme
@@ -151,12 +150,6 @@ set nocompatible
 
 " for Fern.vim plugins
 let g:fern#renderer = "nerdfont"
-
-" Set Config for Vim-lsp
-let g:markdown_fenced_languages = [
-    \ 'vim',
-    \ 'help'
-    \]
 
 " Import self function
 source ~/.config/nvim/VimFiles/FuzzyFinder.vim
