@@ -16,17 +16,18 @@ set encoding=utf-8
 scriptencoding utf-8
 set fileencoding=utf-8 "保存時の文字コード
 set ambiwidth=double "□や○文字が崩れる問題を解決
+set nocompatible
+set wildmenu
 
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-plug',{'dir': '~/.vim/plugged/vim-plug/autoload'}
-" Git
-Plug 'tpope/vim-fugitive'
 " ColorScheme
-Plug 'cocopon/iceberg.vim'
+Plug 'pineapplegiant/spaceduck', {'branch': 'main'}
 " StatusLine
-Plug 'gkeep/iceberg-dark'
-Plug 'itchyny/lightline.vim'
-let g:lightline = { 'colorscheme': 'icebergDark' }
+Plug 'glepnir/spaceline.vim'
+Plug 'kyazdani42/nvim-web-devicons'
+let g:spaceline_seperate_style = 'none'
+let g:spaceline_colorscheme = 'space'
 
 " LanguageClient
 Plug 'autozimu/LanguageClient-neovim', {
@@ -35,17 +36,19 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 
 " for rails
-Plug 'slim-template/vim-slim'
+Plug 'slim-template/vim-slim', {'for': 'slim'}
 
-Plug 'tpope/vim-endwise'
+" for ruby
+Plug 'tpope/vim-endwise', {'for': 'ruby'}
+
 Plug 'tpope/vim-commentary'
-Plug 'alvan/vim-closetag'
+Plug 'alvan/vim-closetag', {'for': ['html','xml']}
 
 " Filer
 Plug 'lambdalisue/nerdfont.vim'
-Plug 'lambdalisue/fern.vim' "Powerful vim filer
-Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-Plug 'LumaKernel/fern-mapping-fzf.vim'
+Plug 'lambdalisue/fern.vim', {'on': 'Fern'} "Powerful vim filer
+Plug 'lambdalisue/fern-renderer-nerdfont.vim', {'on': 'Fern'}
+Plug 'LumaKernel/fern-mapping-fzf.vim', {'on': 'Fern'}
 Plug 'lambdalisue/fern-hijack.vim'
 
 " autocomplete
@@ -89,10 +92,12 @@ syntax on
 
 " Important!!
 if has('termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     set termguicolors
 endif
 
-colorscheme iceberg
+colorscheme spaceduck
 
 " Required for operations modifying multiple buffers like rename.
 set hidden
@@ -146,7 +151,6 @@ let g:deoplete#enable_at_startup = 1
 set completeopt=menuone
 
 set cmdheight=1
-set nocompatible
 
 " for Fern.vim plugins
 let g:fern#renderer = "nerdfont"
