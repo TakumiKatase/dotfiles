@@ -4,6 +4,7 @@ function! s:init_fern() abort
   set nonu
   nmap <buffer> o <Plug>(fern-action-open:vsplit)
   nmap <buffer> so <Plug>(fern-action-open:select)
+  nmap <buffer> to <Plug>(fern-action-open:tabedit)
 endfunction
 
 augroup fern-custom

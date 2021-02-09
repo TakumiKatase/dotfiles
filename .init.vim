@@ -51,6 +51,9 @@ Plug 'lambdalisue/fern-renderer-nerdfont.vim', {'on': 'Fern'}
 Plug 'LumaKernel/fern-mapping-fzf.vim', {'on': 'Fern'}
 Plug 'lambdalisue/fern-hijack.vim'
 
+" Terminal
+Plug 'voldikss/vim-floaterm'
+
 " autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
@@ -159,5 +162,6 @@ let g:fern#renderer = "nerdfont"
 source ~/.config/nvim/VimFiles/FuzzyFinder.vim
 source ~/.config/nvim/VimFiles/ToggleWindowSize.vim
 source ~/.config/nvim/VimFiles/startFernScripts.vim
+source ~/.config/nvim/VimFiles/floatermConfig.vim
 
 filetype on
