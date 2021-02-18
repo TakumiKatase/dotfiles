@@ -18,16 +18,15 @@ set fileencoding=utf-8 "保存時の文字コード
 set ambiwidth=double "□や○文字が崩れる問題を解決
 set nocompatible
 set wildmenu
+let mapleader = "\<Space>"
 
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-plug',{'dir': '~/.vim/plugged/vim-plug/autoload'}
 " ColorScheme
 Plug 'pineapplegiant/spaceduck', {'branch': 'main'}
+
 " StatusLine
-Plug 'glepnir/spaceline.vim'
-Plug 'kyazdani42/nvim-web-devicons'
-let g:spaceline_seperate_style = 'none'
-let g:spaceline_colorscheme = 'space'
+" Plug 'devoc09/minline'
 
 " LanguageClient
 Plug 'autozimu/LanguageClient-neovim', {
@@ -45,11 +44,7 @@ Plug 'tpope/vim-commentary'
 Plug 'alvan/vim-closetag', {'for': ['html','xml']}
 
 " Filer
-Plug 'lambdalisue/nerdfont.vim'
-Plug 'lambdalisue/fern.vim', {'on': 'Fern'} "Powerful vim filer
-Plug 'lambdalisue/fern-renderer-nerdfont.vim', {'on': 'Fern'}
-Plug 'LumaKernel/fern-mapping-fzf.vim', {'on': 'Fern'}
-Plug 'lambdalisue/fern-hijack.vim'
+Plug 'mcchrish/nnn.vim', {'on': 'NnnPicker'}
 
 " Terminal
 Plug 'voldikss/vim-floaterm'
@@ -66,6 +61,12 @@ Plug 'jiangmiao/auto-pairs'
 " FuzzyFinder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+
+" Local Plugins
+Plug '~/dotfiles/VimFiles/my-fzf-conf'
+Plug '~/dotfiles/VimFiles/togglewindow'
+Plug '~/dotfiles/VimFiles/my-nnn-conf'
+Plug '~/src/vimscript/minline'
 
 call plug#end()
 
@@ -91,6 +92,7 @@ set ignorecase " 検索パターンに大文字小文字を区別しない
 set smartcase " 検索パターンに大文字を含んでいたら大文字小文字を区別する
 set hlsearch
 
+set background=dark
 syntax on
 
 " Important!!
@@ -103,7 +105,7 @@ endif
 colorscheme spaceduck
 
 " Required for operations modifying multiple buffers like rename.
-set hidden
+" set hidden
 
 let g:LanguageClient_serverCommands = {
     \ 'javascript': ['~/.nodebrew/current/bin/typescript-language-server', '--stdio'],
@@ -111,7 +113,7 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript.jsx': ['~/.nodebrew/current/bin/typescript-language-server', '--stdio'],
     \ 'typescript.tsx': ['~/.nodebrew/current/bin/typescript-language-server', '--stdio'],
     \ 'python': ['/usr/local/bin/pyls'],
-    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+    \ 'ruby': ['~/.rbenv/versions/2.6.0/bin/solargraph', 'stdio'],
     \ 'go': ['~/go/bin/gopls'],
     \ 'sql': ['/Users/katasetakumi/.nodebrew/current/bin/sql-language-server', 'up', '--method', 'stdio'],
     \ 'vim': ['~/.nodebrew/current/bin/vim-language-server', '--stdio'],
@@ -131,6 +133,8 @@ nmap <silent> sv :vsplit<Return><C-w>w
 " Remap key
 inoremap <C-j> <C-[>
 vnoremap <C-j> <C-[>
+nnoremap <Leader>p <C-o>
+nnoremap <Leader>n <C-i>
 nnoremap <S-h> ^
 nnoremap <S-l> $
 nnoremap <S-k> {
@@ -155,13 +159,15 @@ set completeopt=menuone
 
 set cmdheight=1
 
-" for Fern.vim plugins
+" Fern.vim plugins
 let g:fern#renderer = "nerdfont"
 
-" Import self function
-source ~/.config/nvim/VimFiles/FuzzyFinder.vim
-source ~/.config/nvim/VimFiles/ToggleWindowSize.vim
-source ~/.config/nvim/VimFiles/startFernScripts.vim
-source ~/.config/nvim/VimFiles/floatermConfig.vim
+" Floating Terminal
+let g:floaterm_keymap_new = '<Leader>tf'
+let g:floaterm_keymap_next = '<Leader>tn'
+let g:floaterm_keymap_prev = '<Leader>tp'
+let g:floaterm_keymap_toggle = '<Leader>tt'
+hi Floaterm guibg=black
+hi FloatermBorder guibg=cyan guifg=cyan
 
 filetype on
