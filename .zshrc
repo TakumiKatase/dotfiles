@@ -27,7 +27,7 @@ precmd() {
 eval "$(rbenv init -)"
 
 # direnv
-export EDITOR=vim
+export EDITOR=nvim
 eval "$(direnv hook zsh)"
 
 # peco-src
@@ -46,7 +46,8 @@ zle -N peco-src
 autoload -Uz compinit && compinit
 
 # alias for tmux ide
-alias ide="sh ~/dotfiles/ide.sh"
+alias ide="sh ~/dotfiles/tmux/ide.sh"
+alias dide="sh ~/dotfiles/tmux/default-ide.sh"
 
 # set color for ls command
 autoload -Uz colors

@@ -1,5 +1,5 @@
 if has('vim_starting')
-  set rtp+=~/.vim/plugged/vim-plug"入時にへ点滅の縦棒タイプのカーソ
+  set rtp+=~/.vim/plugged/vim-plug "入時にへ点滅の縦棒タイプのカーソ
   let &t_SI .= "\e[6 q"
 " ノーマルモード時に非点滅のブロックタイプのカーソル
   let &t_EI .= "\e[2 q"
@@ -37,14 +37,18 @@ Plug 'autozimu/LanguageClient-neovim', {
 " for rails
 Plug 'slim-template/vim-slim', {'for': 'slim'}
 
-" for ruby
+" for ruby and rails
 Plug 'tpope/vim-endwise', {'for': 'ruby'}
+Plug 'tpope/vim-rails', {'for': ['erb', 'slim']}
 
 Plug 'tpope/vim-commentary'
 Plug 'alvan/vim-closetag', {'for': ['html','xml']}
 
 " Filer
-Plug 'mcchrish/nnn.vim', {'on': 'NnnPicker'}
+Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'kristijanhusak/defx-icons', {'for': 'defx'}
+Plug 'kristijanhusak/defx-git', {'for': 'defx'}
+Plug 'ryanoasis/vim-devicons'
 
 " Terminal
 Plug 'voldikss/vim-floaterm'
@@ -65,7 +69,7 @@ Plug 'junegunn/fzf.vim'
 " Local Plugins
 Plug '~/dotfiles/VimFiles/my-fzf-conf'
 Plug '~/dotfiles/VimFiles/togglewindow'
-Plug '~/dotfiles/VimFiles/my-nnn-conf'
+Plug '~/dotfiles/VimFiles/my-defx-conf'
 Plug '~/src/vimscript/minline'
 
 call plug#end()
@@ -129,11 +133,12 @@ nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 " Split window
 nmap <silent> ss :split<Return><C-w>w
 nmap <silent> sv :vsplit<Return><C-w>w
+nmap <silent> st :tabnew<Return>
 
 " Remap key
 inoremap <C-j> <C-[>
 vnoremap <C-j> <C-[>
-nnoremap <Leader>p <C-o>
+nnoremap <Leader>o <C-o>
 nnoremap <Leader>n <C-i>
 nnoremap <S-h> ^
 nnoremap <S-l> $
@@ -158,9 +163,8 @@ let g:deoplete#enable_at_startup = 1
 set completeopt=menuone
 
 set cmdheight=1
-
-" Fern.vim plugins
-let g:fern#renderer = "nerdfont"
+" Defx conf
+nnoremap <silent>sf :Defx <CR>
 
 " Floating Terminal
 let g:floaterm_keymap_new = '<Leader>tf'
