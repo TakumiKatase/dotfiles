@@ -66,6 +66,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" Markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
 " Local Plugins
 Plug '~/dotfiles/VimFiles/my-fzf-conf'
 Plug '~/dotfiles/VimFiles/togglewindow'
@@ -173,5 +176,9 @@ let g:floaterm_keymap_prev = '<Leader>tp'
 let g:floaterm_keymap_toggle = '<Leader>tt'
 hi Floaterm guibg=black
 hi FloatermBorder guibg=cyan guifg=cyan
+
+" Markdown Preview
+noremap <Leader>mp :MarkdownPreview<CR>
+noremap <Leader>ms :MarkdownPreviewStop<CR>
 
 filetype on
