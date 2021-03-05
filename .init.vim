@@ -110,6 +110,12 @@ if has('termguicolors')
 endif
 
 colorscheme spaceduck
+" opacity settings
+highlight Normal ctermbg=NONE guibg=NONE
+highlight NonText ctermbg=NONE guibg=NONE
+highlight LineNr ctermbg=NONE guibg=NONE
+highlight Folded ctermbg=NONE guibg=NONE
+highlight EndOfBuffer ctermbg=NONE guibg=NONE
 
 " Required for operations modifying multiple buffers like rename.
 " set hidden

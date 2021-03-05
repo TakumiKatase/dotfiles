@@ -1,6 +1,14 @@
 shell:
     program: /bin/zsh
 
+window:
+    padding:
+        x: 10
+    # Borders and title bar
+    decorations: none
+
+background_opacity: 0.9
+
 font:
     size: 16
     normal:
