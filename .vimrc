@@ -1,102 +1,86 @@
+if has('vim_starting')
+  set rtp+=~/.vim/plugged/vim-plug "入時にへ点滅の縦棒タイプのカーソ
+  let &t_SI .= "\e[6 q"
+" ノーマルモード時に非点滅のブロックタイプのカーソル
+  let &t_EI .= "\e[2 q"
+" 置換モード時に非点滅の下線タイプのカーソル
+  let &t_SR .= "\e[4 q"
+  if !isdirectory(expand('~/.vim/plugged/vim-plug'))
+    echo 'install vim-plug...'
+    call system('mkdir -p ~/.vim/plugged/vim-plug')
+    call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
+  end
+endif
+
 set encoding=utf-8
 scriptencoding utf-8
 set fileencoding=utf-8 "保存時の文字コード
 set ambiwidth=double "□や○文字が崩れる問題を解決
-
+set nocompatible
+set wildmenu
+let mapleader = "\<Space>"
 
 " vim-plugのプラグイン
 call plug#begin('~/.vim/plugged')
+Plug 'junegunn/vim-plug', {'dir': '~/.vim/plugged/vim-plug/autoload'}
 
-Plug 'Shougo/neobundle.vim'
-" resize plugin
-Plug 'simeji/winresizer'
+" ColorScheme
+Plug 'pineapplegiant/spaceduck', {'branch': 'main'}
 
-" auto-complete
-Plug 'Shougo/deoplete.nvim'
+" LanguageClient
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+" for rails
+Plug 'slim-template/vim-slim', {'for': 'slim'}
+
+" for ruby and rails
+Plug 'tpope/vim-endwise', {'for': 'ruby'}
+Plug 'tpope/vim-rails', {'for': ['erb', 'slim']}
+
+Plug 'tpope/vim-commentary'
+Plug 'alvan/vim-closetag', {'for': ['html','xml']}
+
+" Filer
+Plug 'Shougo/defx.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
-let g:deoplete#enable_at_startup = 1
-" auto-complete for python
-Plug 'deoplete-plugins/deoplete-jedi'
-" auto-complete for vim
-Plug 'Shougo/neco-vim'
-" auto-complete for go
-Plug 'deoplete-plugins/deoplete-go'
-" auto-complete for ruby
-Plug 'takkii/Bignyanco'
-" auto-complete for html
-Plug 'mattn/emmet-vim'
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+Plug 'kristijanhusak/defx-icons', {'for': 'defx'}
+Plug 'kristijanhusak/defx-git', {'for': 'defx'}
+Plug 'ryanoasis/vim-devicons'
 
-" ステータスラインの表示内容強化
-Plug 'itchyny/lightline.vim'
-let g:lightline = {'colorscheme': 'iceberg'}
-Plug 'bronson/vim-trailing-whitespace'
-" Plug 'Yggdroot/indentLine'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-endwise'
-Plug 'joshdick/onedark.vim'
-Plug 'cocopon/iceberg.vim'
+" autocomplete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-" インデントに色をつけて見やすくする
-Plug 'nathanaelkane/vim-indent-guides'
-let g:indent_guides_enable_on_vim_startup = 1
-set ts=4 sw=4 et
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
+" Terminal
+Plug 'voldikss/vim-floaterm'
 
-" シングルクオートとダブルクオートの入れ替えなど
-Plug 'tpope/vim-surround'
+" rainbow
+Plug 'luochen1990/rainbow'
+let g:rainbow_active = 1
+" auto-pairs
+Plug 'jiangmiao/auto-pairs'
 
-" タブ文字の表示はば
-set tabstop=4
-" Vimが挿入するインデントの幅
-set shiftwidth=4
-
-" ステータスラインの設定
-set laststatus=2 " ステータスラインを常に表示
-set showmode " 現在のモードを表示
-set showcmd " 打ったコマンドをステータスラインの下に表示
-set statusline+={fugitive#statusline()}
-
-" clopboard setting
-set clipboard+=unnamed
-
-" javascript関係
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
-let g:javascript_plugin_jsdoc = 1
-
-" Ruby
-Plug 'ngmy/vim-rubocop'
-Plug 'slim-template/vim-slim'
-" ログファイルを色付けしてくれる
-Plug 'vim-scripts/AnsiEsc.vim'
-" CSVをカラム単位に色分けする
-Plug 'mechatroner/rainbow_csv'
-"< to <% and > to %> in erb file type
-Plug 'devoc09/vim-erb'
-" for rails
-Plug 'tpope/vim-rails'
-
-"Go
-Plug 'fatih/vim-go'
-
-"Be comment string
-Plug 'devoc09/vim-commenter'
-
-" Search Files
+" FuzzyFinder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Git
-Plug 'tpope/vim-fugitive'
+" Local Plugins
+Plug '~/dotfiles/VimFiles/my-fzf-conf'
+Plug '~/dotfiles/VimFiles/togglewindow'
+Plug '~/dotfiles/VimFiles/my-defx-conf'
+Plug '~/src/vimscript/minline'
 
 call plug#end()
+
+set number
+set laststatus=2
+set cursorline
+set clipboard=unnamed
+filetype plugin indent on
+set belloff=all
 
 "タブ/インデント
 set expandtab " タブ入力を複数の空白入力に置き換える
@@ -106,6 +90,7 @@ set shiftwidth=4 " smartindentで増減する幅
 set softtabstop=4 " 連続した空白に対してタブきーやバックスペースキーでカーソルが動く幅
 set smartindent " 改行に前の行の構文をテェックし次の行のインデントを増幅する
 set backspace=2
+set sidescroll=2
 
 " 文字列検索
 set incsearch " インクリメンタルサーチ、1文字入力ごとに検索を行う
@@ -113,44 +98,90 @@ set ignorecase " 検索パターンに大文字小文字を区別しない
 set smartcase " 検索パターンに大文字を含んでいたら大文字小文字を区別する
 set hlsearch
 
-" ESCキー2度押しでハイライトの切り替え
-nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
-
-autocmd ColorScheme * highlight Normal ctermbg=none
-autocmd ColorScheme * highlight LineNr ctermbg=none
-
-let g:hybrid_use_iTerm_colors = 1
-colorscheme iceberg
-set background=dark " コメントアウトを解除するとダークモードに
+set background=dark
 syntax on
 
-set cursorline
+" Important!!
+if has('termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
 
-set nocompatible
+colorscheme spaceduck
+" opacity settings
+highlight Normal ctermbg=NONE guibg=NONE
+highlight NonText ctermbg=NONE guibg=NONE
+highlight LineNr ctermbg=NONE guibg=NONE
+highlight Folded ctermbg=NONE guibg=NONE
+highlight EndOfBuffer ctermbg=NONE guibg=NONE
 
-" fzf key mapping
-nnoremap <silent> ,f :GFiles<CR>
-nnoremap <silent> ,F :GFiles?<CR>
-nnoremap <silent> ,b :Buffers<CR>
-nnoremap <silent> ,l :BLines<CR>
-nnoremap <silent> ,h :History<CR>
-nnoremap <silent> ,m :Mark<CR>
+" Required for operations modifying multiple buffers like rename.
+" set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['~/.nodebrew/current/bin/typescript-language-server', '--stdio'],
+    \ 'typescript': ['~/.nodebrew/current/bin/typescript-language-server', '--stdio'],
+    \ 'javascript.jsx': ['~/.nodebrew/current/bin/typescript-language-server', '--stdio'],
+    \ 'typescript.tsx': ['~/.nodebrew/current/bin/typescript-language-server', '--stdio'],
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ 'ruby': ['~/.rbenv/versions/2.6.0/bin/solargraph', 'stdio'],
+    \ 'go': ['~/go/bin/gopls'],
+    \ 'sql': ['/Users/katasetakumi/.nodebrew/current/bin/sql-language-server', 'up', '--method', 'stdio'],
+    \ 'vim': ['~/.nodebrew/current/bin/vim-language-server', '--stdio'],
+    \ }
+
+" note that if you are using Plug mapping you should not use `noremap` mappings.
+nmap <F5> <Plug>(lcn-menu)
+" Or map each action separately
+nmap <silent> <F2> <Plug>(lcn-rename)
+nnoremap <silent> @ :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 
 " Split window
-nmap ss :split<Return><C-w>w
-nmap sv :vsplit<Return><C-w>w
+nmap <silent> ss :split<Return><C-w>w
+nmap <silent> sv :vsplit<Return><C-w>w
+nmap <silent> st :tabnew<Return>
 
-" NERDTree command mapping
-nnoremap <silent> :NT :NERDTree<CR>
+" Remap key
+inoremap <C-j> <C-[>
+vnoremap <C-j> <C-[>
+nnoremap <Leader>o <C-o>
+nnoremap <Leader>n <C-i>
+nnoremap <S-h> ^
+nnoremap <S-l> $
+nnoremap <S-k> {
+nnoremap <S-j> }
+nnoremap <Left> <C-w><<CR>
+nnoremap <Right> <C-w>><CR>
+nnoremap <Up> <C-w>+<CR>
+nnoremap <Down> <C-w>-<CR>
 
-if has('vim_starting')
-"入時にへ点滅の縦棒タイプのカーソ
-	let &t_SI .= "\e[6 q"
-	" ノーマルモード時に非点滅のブロックタイプのカーソル
-	let &t_EI .= "\e[2 q"
-	" 置換モード時に非点滅の下線タイプのカーソル
-	let &t_SR .= "\e[4 q"
+" Move Windows.
+nnoremap sh <C-w>h
+nnoremap sk <C-w>k
+nnoremap sj <C-w>j
+nnoremap sl <C-w>l
 
-endif
-" filetypeの自動検出(最後の方に書いたほうがいいらしい)
+"Switch Tabs.
+nnoremap <silent> <S-Tab> :-tabnext<Return>
+nnoremap <silent> <Tab> :tabnext<Return>
+
+" for deoplete
+let g:deoplete#enable_at_startup = 1
+set completeopt=menuone
+
+set cmdheight=1
+
+" Defx conf
+nnoremap <silent>sf :Defx <CR>
+
+" Floating Terminal
+let g:floaterm_keymap_new = '<Leader>tf'
+let g:floaterm_keymap_next = '<Leader>tn'
+let g:floaterm_keymap_prev = '<Leader>tp'
+let g:floaterm_keymap_toggle = '<Leader>tt'
+hi Floaterm guibg=black
+hi FloatermBorder guibg=cyan guifg=cyan
+
 filetype on
