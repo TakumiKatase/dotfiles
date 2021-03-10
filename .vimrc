@@ -67,6 +67,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" Move Cursor
+Plug 'easymotion/vim-easymotion'
+
 " Local Plugins
 Plug '~/dotfiles/VimFiles/my-fzf-conf'
 Plug '~/dotfiles/VimFiles/togglewindow'

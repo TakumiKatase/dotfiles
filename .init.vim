@@ -69,6 +69,9 @@ Plug 'junegunn/fzf.vim'
 " Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
+" Move Cursor
+Plug 'easymotion/vim-easymotion'
+
 " Local Plugins
 Plug '~/dotfiles/VimFiles/my-fzf-conf'
 Plug '~/dotfiles/VimFiles/togglewindow'
