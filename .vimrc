@@ -44,9 +44,13 @@ Plug 'tpope/vim-commentary'
 Plug 'alvan/vim-closetag', {'for': ['html','xml']}
 
 " Filer
-Plug 'Shougo/defx.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
+if has('nvim')
+    Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+    Plug 'Shougo/defx.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+endif
 Plug 'kristijanhusak/defx-icons', {'for': 'defx'}
 Plug 'kristijanhusak/defx-git', {'for': 'defx'}
 Plug 'ryanoasis/vim-devicons'
