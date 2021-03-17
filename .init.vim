@@ -131,7 +131,7 @@ let g:LanguageClient_serverCommands = {
     \ 'python': ['/usr/local/bin/pyls'],
     \ 'ruby': ['~/.rbenv/versions/2.6.0/bin/solargraph', 'stdio'],
     \ 'go': ['~/go/bin/gopls'],
-    \ 'sql': ['/Users/katasetakumi/.nodebrew/current/bin/sql-language-server', 'up', '--method', 'stdio'],
+    \ 'sql': ['~/.nodebrew/current/bin/sql-language-server', 'up', '--method', 'stdio'],
     \ 'vim': ['~/.nodebrew/current/bin/vim-language-server', '--stdio'],
     \ }
 
