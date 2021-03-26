@@ -103,7 +103,7 @@ set smartcase " 検索パターンに大文字を含んでいたら大文字小�
 set hlsearch
 
 set background=dark
-syntax on
+syntax enable
 
 " Important!!
 if has('termguicolors')
