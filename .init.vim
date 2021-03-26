@@ -80,7 +80,7 @@ Plug '~/src/vimscript/minline'
 
 call plug#end()
 
-set number
+" set number
 set cursorline
 set clipboard=unnamed
 filetype plugin indent on
@@ -111,14 +111,15 @@ if has('termguicolors')
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     set termguicolors
 endif
+set t_Co=256
 
 colorscheme spaceduck
 " opacity settings
-highlight Normal ctermbg=NONE guibg=NONE
-highlight NonText ctermbg=NONE guibg=NONE
-highlight LineNr ctermbg=NONE guibg=NONE
-highlight Folded ctermbg=NONE guibg=NONE
-highlight EndOfBuffer ctermbg=NONE guibg=NONE
+" highlight Normal ctermbg=NONE guibg=NONE
+" highlight NonText ctermbg=NONE guibg=NONE
+" highlight LineNr ctermbg=NONE guibg=NONE
+" highlight Folded ctermbg=NONE guibg=NONE
+" highlight EndOfBuffer ctermbg=NONE guibg=NONE
 
 " Required for operations modifying multiple buffers like rename.
 " set hidden

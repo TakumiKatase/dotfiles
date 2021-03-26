@@ -71,6 +71,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" Markdwon
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
 " Move Cursor
 Plug 'easymotion/vim-easymotion'
 
@@ -82,7 +85,7 @@ Plug '~/src/vimscript/minline'
 
 call plug#end()
 
-set number
+" set number
 set laststatus=2
 set cursorline
 set clipboard=unnamed
@@ -114,14 +117,15 @@ if has('termguicolors')
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     set termguicolors
 endif
+set t_Co=256
 
 colorscheme spaceduck
 " opacity settings
-highlight Normal ctermbg=NONE guibg=NONE
-highlight NonText ctermbg=NONE guibg=NONE
-highlight LineNr ctermbg=NONE guibg=NONE
-highlight Folded ctermbg=NONE guibg=NONE
-highlight EndOfBuffer ctermbg=NONE guibg=NONE
+" highlight Normal ctermbg=NONE guibg=NONE
+" highlight NonText ctermbg=NONE guibg=NONE
+" highlight LineNr ctermbg=NONE guibg=NONE
+" highlight Folded ctermbg=NONE guibg=NONE
+" highlight EndOfBuffer ctermbg=NONE guibg=NONE
 
 " Required for operations modifying multiple buffers like rename.
 " set hidden
@@ -190,5 +194,9 @@ let g:floaterm_keymap_prev = '<Leader>tp'
 let g:floaterm_keymap_toggle = '<Leader>tt'
 hi Floaterm guibg=black
 hi FloatermBorder guibg=cyan guifg=cyan
+
+" Markdown Preview
+noremap <Leader>mp :MarkdownPreview<CR>
+noremap <Leader>ms :MarkdownPreviewStop<CR>
 
 filetype on

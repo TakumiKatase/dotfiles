@@ -7,7 +7,7 @@ window:
     # Borders and title bar
     decorations: none
 
-background_opacity: 0.9
+# background_opacity: 0.9
 
 font:
     size: 16
