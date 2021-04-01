@@ -151,8 +151,6 @@ nmap <silent> st :tabnew<Return>
 " Remap key
 inoremap <C-j> <C-[>
 vnoremap <C-j> <C-[>
-nnoremap <Leader>o <C-o>
-nnoremap <Leader>n <C-i>
 nnoremap <S-h> ^
 nnoremap <S-l> $
 nnoremap <S-k> {
@@ -190,5 +188,10 @@ hi FloatermBorder guibg=cyan guifg=cyan
 " Markdown Preview
 noremap <Leader>mp :MarkdownPreview<CR>
 noremap <Leader>ms :MarkdownPreviewStop<CR>
+
+" Easymotion
+let g:EasyMotion_do_mapping = 0 "Disable default mappings
+nmap s <Plug>(easymotion-s2)
+
 
 filetype on
