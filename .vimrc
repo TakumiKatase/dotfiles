@@ -199,4 +199,8 @@ hi FloatermBorder guibg=cyan guifg=cyan
 noremap <Leader>mp :MarkdownPreview<CR>
 noremap <Leader>ms :MarkdownPreviewStop<CR>
 
+" Easymotion
+let g:EasyMotion_do_mapping = 0
+nmap <Leader>s <Plug>(easymotion-s2)
+
 filetype on
