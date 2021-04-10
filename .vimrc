@@ -33,12 +33,11 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
-" for rails
-Plug 'slim-template/vim-slim', {'for': 'slim'}
-
-" for ruby and rails
+" for ruby
 Plug 'tpope/vim-endwise', {'for': 'ruby'}
-Plug 'tpope/vim-rails', {'for': ['erb', 'slim']}
+
+" for go
+Plug 'mattn/vim-goimports', {'for': 'go'}
 
 Plug 'tpope/vim-commentary'
 Plug 'alvan/vim-closetag', {'for': ['html','xml']}
@@ -57,9 +56,6 @@ Plug 'ryanoasis/vim-devicons'
 
 " autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-" Terminal
-Plug 'voldikss/vim-floaterm'
 
 " rainbow
 Plug 'luochen1990/rainbow'

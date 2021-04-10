@@ -34,12 +34,10 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
-" for rails
-Plug 'slim-template/vim-slim', {'for': 'slim'}
-
-" for ruby and rails
+" for ruby
 Plug 'tpope/vim-endwise', {'for': 'ruby'}
-Plug 'tpope/vim-rails', {'for': ['erb', 'slim']}
+" for go
+Plug 'mattn/vim-goimports', {'for': 'go'}
 
 Plug 'tpope/vim-commentary'
 Plug 'alvan/vim-closetag', {'for': ['html','xml']}
@@ -49,9 +47,6 @@ Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'kristijanhusak/defx-icons', {'for': 'defx'}
 Plug 'kristijanhusak/defx-git', {'for': 'defx'}
 Plug 'ryanoasis/vim-devicons'
-
-" Terminal
-Plug 'voldikss/vim-floaterm'
 
 " autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -85,6 +80,7 @@ set cursorline
 set clipboard=unnamed
 filetype plugin indent on
 set belloff=all
+set splitright
 
 "タブ/インデント
 set expandtab " タブ入力を複数の空白入力に置き換える
@@ -145,7 +141,7 @@ nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 
 " Split window
 nmap <silent> ss :split<Return><C-w>w
-nmap <silent> sv :vsplit<Return><C-w>w
+nmap <silent> sv :vsplit<Return>
 nmap <silent> st :tabnew<Return>
 
 " Remap key
@@ -193,5 +189,14 @@ noremap <Leader>ms :MarkdownPreviewStop<CR>
 let g:EasyMotion_do_mapping = 0 "Disable default mappings
 nmap <Leader>s <Plug>(easymotion-s2)
 
+" use Termianl shortcut
+autocmd TermOpen * startinsert
+function s:vsplitTerm()
+    execute 'vsplit'
+    execute 'term'
+endfunction
+command! -count -nargs=* VTerm call s:vsplitTerm()
+nmap <silent> tt :VTerm<CR>
+tnoremap <silent><C-j> <C-\><C-n>
 
 filetype on
