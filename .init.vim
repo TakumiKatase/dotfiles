@@ -23,7 +23,10 @@ let mapleader = "\<Space>"
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-plug',{'dir': '~/.vim/plugged/vim-plug/autoload'}
 " ColorScheme
-Plug 'pineapplegiant/spaceduck', {'branch': 'main'}
+Plug 'joshdick/onedark.vim'
+let g:onedark_color_overrides = {
+\ "black": {"gui": "#21252B", "cterm": "235", "cterm16": "0" },
+\}
 
 " StatusLine
 " Plug 'devoc09/minline'
@@ -102,14 +105,14 @@ set background=dark
 syntax enable
 
 " Important!!
-if has('termguicolors')
+if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     set termguicolors
 endif
-set t_Co=256
+" set t_Co=256
 
-colorscheme spaceduck
+colorscheme onedark
 " opacity settings
 " highlight Normal ctermbg=NONE guibg=NONE
 " highlight NonText ctermbg=NONE guibg=NONE
@@ -172,14 +175,6 @@ set completeopt=menuone
 set cmdheight=1
 " Defx conf
 nnoremap <silent>sf :Defx <CR>
-
-" Floating Terminal
-let g:floaterm_keymap_new = '<Leader>tf'
-let g:floaterm_keymap_next = '<Leader>tn'
-let g:floaterm_keymap_prev = '<Leader>tp'
-let g:floaterm_keymap_toggle = '<Leader>tt'
-hi Floaterm guibg=black
-hi FloatermBorder guibg=cyan guifg=cyan
 
 " Markdown Preview
 noremap <Leader>mp :MarkdownPreview<CR>
