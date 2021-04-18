@@ -28,6 +28,8 @@ let g:onedark_color_overrides = {
 \ "black": {"gui": "#21252B", "cterm": "235", "cterm16": "0" },
 \}
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 " StatusLine
 " Plug 'devoc09/minline'
 
@@ -122,6 +124,17 @@ colorscheme onedark
 
 " Required for operations modifying multiple buffers like rename.
 " set hidden
+"
+" treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "vue", "ruby" },  -- list of language that will be disabled
+  },
+}
+EOF
 
 let g:LanguageClient_serverCommands = {
     \ 'javascript': ['~/.nodebrew/current/bin/typescript-language-server', '--stdio'],
