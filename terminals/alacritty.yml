@@ -5,7 +5,7 @@ window:
     padding:
         x: 10
     # Borders and title bar
-    # decorations: none
+    decorations: none
 
 # background_opacity: 0.9
 

@@ -178,6 +178,7 @@ nnoremap sk <C-w>k
 nnoremap sj <C-w>j
 nnoremap sl <C-w>l
 nnoremap <S-o> <C-o>
+nnoremap <S-i> <C-i>
 
 "Switch Tabs.
 nnoremap <silent> <S-Tab> :-tabnext<Return>

@@ -15,7 +15,7 @@ endif
 set encoding=utf-8
 scriptencoding utf-8
 set fileencoding=utf-8 "保存時の文字コード
-set ambiwidth=double "□や○文字が崩れる問題を解決
+" set ambiwidth=double "□や○文字が崩れる問題を解決
 set nocompatible
 set wildmenu
 let mapleader = "\<Space>"
@@ -156,8 +156,6 @@ nmap <silent> st :tabnew<Return>
 " Remap key
 inoremap <C-j> <C-[>
 vnoremap <C-j> <C-[>
-nnoremap <Leader>o <C-o>
-nnoremap <Leader>n <C-i>
 nnoremap <S-h> ^
 nnoremap <S-l> $
 nnoremap <S-k> {
@@ -172,6 +170,8 @@ nnoremap sh <C-w>h
 nnoremap sk <C-w>k
 nnoremap sj <C-w>j
 nnoremap sl <C-w>l
+nnoremap <S-o> <C-o>
+nnoremap <S-i> <C-i>
 
 "Switch Tabs.
 nnoremap <silent> <S-Tab> :-tabnext<Return>
