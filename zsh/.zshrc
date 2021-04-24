@@ -32,16 +32,9 @@ setopt nonomatch
 export GOPATH=$(go env GOPATH)
 export PATH=$PATH:$GOPATH/bin
 
-# hyper
-precmd() {
-   pwd=$(pwd)
-   cwd=${pwd##*/}
-   print -Pn "\e]0;$cwd\a"
-}
 
 # direnv
 export EDITOR=nvim
-eval "$(direnv hook zsh)"
 
 # alias for tmux ide
 alias ide="sh ~/dotfiles/tmux/ide.sh"
@@ -55,6 +48,5 @@ alias ll='ls -l'
 alias la='ll -aF'
 alias lt='ll -TF'
 alias l='ll -F'
-alias cat='bat'
 
 export TERM=xterm-256color
