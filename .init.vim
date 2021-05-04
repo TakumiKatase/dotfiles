@@ -27,6 +27,7 @@ Plug 'joshdick/onedark.vim'
 let g:onedark_color_overrides = {
 \ "black": {"gui": "#21252B", "cterm": "235", "cterm16": "0" },
 \}
+Plug 'srcery-colors/srcery-vim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -114,7 +115,7 @@ if exists('+termguicolors')
 endif
 " set t_Co=256
 
-colorscheme onedark
+colorscheme srcery
 " opacity settings
 " highlight Normal ctermbg=NONE guibg=NONE
 " highlight NonText ctermbg=NONE guibg=NONE
