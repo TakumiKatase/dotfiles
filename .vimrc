@@ -25,16 +25,23 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-plug', {'dir': '~/.vim/plugged/vim-plug/autoload'}
 
 " ColorScheme
-Plug 'joshdick/onedark.vim'
-let g:onedark_color_overrides = {
-\ "black": {"gui": "#21252B", "cterm": "235", "cterm16": "0" },
-\}
+" Plug 'joshdick/onedark.vim'
+" let g:onedark_color_overrides = {
+"\ 'black': {'gui': '#21252B', 'cterm': '235', 'cterm16': '0' },
+" \}
+Plug 'srcery-colors/srcery-vim'
 
 " LanguageClient
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+
+Plug 'glepnir/spaceline.vim'
+let g:spaceline_seperate_style = 'arrow-fade'
+let g:spaceline_git_branch_icon = ''
+let g:spaceline_colorscheme = 'dracula'
+let g:spaceline_diagnostic_tool = 'nvim_lsp'
 
 " for ruby
 Plug 'tpope/vim-endwise', {'for': 'ruby'}
@@ -80,7 +87,7 @@ Plug 'easymotion/vim-easymotion'
 Plug '~/dotfiles/VimFiles/my-fzf-conf'
 Plug '~/dotfiles/VimFiles/togglewindow'
 Plug '~/dotfiles/VimFiles/my-defx-conf'
-Plug '~/src/vimscript/minline'
+" Plug '~/src/vimscript/minline'
 
 call plug#end()
 
@@ -118,7 +125,7 @@ if exists('+termguicolors')
 endif
 " set t_Co=256
 
-colorscheme onedark
+colorscheme srcery
 " opacity settings
 " highlight Normal ctermbg=NONE guibg=NONE
 " highlight NonText ctermbg=NONE guibg=NONE
