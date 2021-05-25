@@ -33,11 +33,11 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " StatusLine
 " Plug 'devoc09/minline'
-Plug 'glepnir/spaceline.vim'
+" Plug 'glepnir/spaceline.vim'
 let g:spaceline_git_branch_icon = ''
 let g:spaceline_seperate_style = 'arrow-fade'
-let g:spaceline_colorscheme = 'dracula'
-let g:spaceline_diagnostic_tool = 'nvim_lsp'
+let g:spaceline_colorscheme = 'srcery'
+let g:spaceline_custom_vim_status =  {"n": "N ","V":"V ","v":"V ","\<C-v>": "V ","i":"I ","R":"R ","s":"S ","t":"T ","c":"C ","!":"SE "}
 
 " LanguageClient
 Plug 'autozimu/LanguageClient-neovim', {
@@ -83,6 +83,7 @@ Plug '~/dotfiles/VimFiles/my-fzf-conf'
 Plug '~/dotfiles/VimFiles/togglewindow'
 Plug '~/dotfiles/VimFiles/my-defx-conf'
 " Plug '~/src/vimscript/minline'
+Plug '~/src/vimscript/spaceline.vim'
 
 call plug#end()
 
@@ -143,6 +144,7 @@ require'nvim-treesitter.configs'.setup {
 EOF
 
 let g:LanguageClient_serverCommands = {
+    \ 'c': ['ccls', '--log-file=/tmp/cc.log'],
     \ 'javascript': ['~/.nodebrew/current/bin/typescript-language-server', '--stdio'],
     \ 'typescript': ['~/.nodebrew/current/bin/typescript-language-server', '--stdio'],
     \ 'javascript.jsx': ['~/.nodebrew/current/bin/typescript-language-server', '--stdio'],
