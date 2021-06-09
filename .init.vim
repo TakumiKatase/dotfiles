@@ -14,32 +14,26 @@ endif
 
 set encoding=utf-8
 scriptencoding utf-8
-set fileencoding=utf-8 "保存時の文字コード
-" set ambiwidth=double "□や○文字が崩れる問題を解決
+set fileencoding=utf-8
 set nocompatible
 set wildmenu
 let mapleader = "\<Space>"
 
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-plug',{'dir': '~/.vim/plugged/vim-plug/autoload'}
-" ColorScheme
-" Plug 'joshdick/onedark.vim'
-" let g:onedark_color_overrides = {
-"\ 'black': {'gui': '#21252B', 'cterm': '235', 'cterm16': '0' },
-" \}
-Plug 'srcery-colors/srcery-vim'
+Plug 'srcery-colors/srcery-vim' " colorscheme
 
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " more beautiful and powerful syntax
 
 " StatusLine
 " Plug 'devoc09/minline'
-" Plug 'glepnir/spaceline.vim'
-let g:spaceline_git_branch_icon = ''
+" Plug 'glepnir/spaceline.vim' " StatusLine
+let g:spaceline_git_branch_icon = ' '
 let g:spaceline_seperate_style = 'arrow-fade'
 let g:spaceline_colorscheme = 'srcery'
 let g:spaceline_custom_vim_status =  {"n": "N ","V":"V ","v":"V ","\<C-v>": "V ","i":"I ","R":"R ","s":"S ","t":"T ","c":"C ","!":"SE "}
 
-" LanguageClient
+" lsp-client
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
@@ -72,17 +66,15 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Markdown
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
-" Move Cursor
-Plug 'easymotion/vim-easymotion'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} " Markdown
+
+Plug 'easymotion/vim-easymotion' " easy way to cursol-move
 
 " Local Plugins
 Plug '~/dotfiles/VimFiles/my-fzf-conf'
 Plug '~/dotfiles/VimFiles/togglewindow'
 Plug '~/dotfiles/VimFiles/my-defx-conf'
-" Plug '~/src/vimscript/minline'
 Plug '~/src/vimscript/spaceline.vim'
 
 call plug#end()
@@ -110,7 +102,7 @@ set ignorecase " 検索パターンに大文字小文字を区別しない
 set smartcase " 検索パターンに大文字を含んでいたら大文字小文字を区別する
 set hlsearch
 
-set background=dark
+" set background=dark " difined srcery color
 syntax enable
 
 " Important!!
@@ -145,10 +137,6 @@ EOF
 
 let g:LanguageClient_serverCommands = {
     \ 'c': ['ccls', '--log-file=/tmp/cc.log'],
-    \ 'javascript': ['~/.nodebrew/current/bin/typescript-language-server', '--stdio'],
-    \ 'typescript': ['~/.nodebrew/current/bin/typescript-language-server', '--stdio'],
-    \ 'javascript.jsx': ['~/.nodebrew/current/bin/typescript-language-server', '--stdio'],
-    \ 'typescript.tsx': ['~/.nodebrew/current/bin/typescript-language-server', '--stdio'],
     \ 'python': ['/usr/local/bin/pyls'],
     \ 'ruby': ['~/.rbenv/versions/2.6.0/bin/solargraph', 'stdio'],
     \ 'go': ['~/go/bin/gopls'],
@@ -214,8 +202,14 @@ function s:vsplitTerm()
     execute 'vsplit'
     execute 'term'
 endfunction
-command! -count -nargs=* VTerm call s:vsplitTerm()
-nmap <silent> tt :VTerm<CR>
+function s:splitTerm()
+    execute 'split'
+    execute 'term'
+endfunction
+command! -count -nargs=* Vsterm call s:vsplitTerm()
+command! -count -nargs=* Sterm call s:splitTerm()
+nmap <silent> tt :Vsterm<CR>
+nmap <silent> ts :Sterm<CR>
 tnoremap <silent><C-j> <C-\><C-n>
 
 filetype on
