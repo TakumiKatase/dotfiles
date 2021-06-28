@@ -1,15 +1,9 @@
 if has('vim_starting')
-  set rtp+=~/.vim/plugged/vim-plug "入時にへ点滅の縦棒タイプのカーソ
   let &t_SI .= "\e[6 q"
 " ノーマルモード時に非点滅のブロックタイプのカーソル
   let &t_EI .= "\e[2 q"
 " 置換モード時に非点滅の下線タイプのカーソル
   let &t_SR .= "\e[4 q"
-  if !isdirectory(expand('~/.vim/plugged/vim-plug'))
-    echo 'install vim-plug...'
-    call system('mkdir -p ~/.vim/plugged/vim-plug')
-    call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
-  end
 endif
 
 set encoding=utf-8
@@ -22,13 +16,7 @@ let mapleader = "\<Space>"
 
 " vim-plugのプラグイン
 call plug#begin('~/.vim/plugged')
-Plug 'junegunn/vim-plug', {'dir': '~/.vim/plugged/vim-plug/autoload'}
-
 " ColorScheme
-" Plug 'joshdick/onedark.vim'
-" let g:onedark_color_overrides = {
-"\ 'black': {'gui': '#21252B', 'cterm': '235', 'cterm16': '0' },
-" \}
 Plug 'srcery-colors/srcery-vim'
 
 " LanguageClient
@@ -41,7 +29,6 @@ Plug 'glepnir/spaceline.vim'
 let g:spaceline_seperate_style = 'arrow-fade'
 let g:spaceline_git_branch_icon = ''
 let g:spaceline_colorscheme = 'dracula'
-let g:spaceline_diagnostic_tool = 'nvim_lsp'
 
 " for ruby
 Plug 'tpope/vim-endwise', {'for': 'ruby'}
@@ -76,9 +63,6 @@ Plug 'jiangmiao/auto-pairs'
 " FuzzyFinder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
-" Markdwon
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 " Move Cursor
 Plug 'easymotion/vim-easymotion'

@@ -22,16 +22,8 @@ if [ -f ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh ]; 
     bindkey '^[[B' history-substring-search-down
 fi
 
-# git path
-export PATH=$PATH:"/usr/local/bin/git"
-
 # for curl
 setopt nonomatch
-
-# go path
-export GOPATH=$(go env GOPATH)
-export PATH=$PATH:$GOPATH/bin
-
 
 # direnv
 export EDITOR=nvim
@@ -50,3 +42,4 @@ alias lt='ll -TF'
 alias l='ll -F'
 
 export TERM=xterm-256color
+source $HOME/dotfiles/shell/zsh-extension/history_share.sh

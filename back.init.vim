@@ -1,9 +1,15 @@
 if has('vim_starting')
-    let &t_SI .= "\e[6 q"
-    " ノーマルモード時に非点滅のブロックタイプのカーソル
-    let &t_EI .= "\e[2 q"
-    " 置換モード時に非点滅の下線タイプのカーソル
-    let &t_SR .= "\e[4 q"
+  set rtp+=~/.vim/plugged/vim-plug "入時にへ点滅の縦棒タイプのカーソ
+  let &t_SI .= "\e[6 q"
+" ノーマルモード時に非点滅のブロックタイプのカーソル
+  let &t_EI .= "\e[2 q"
+" 置換モード時に非点滅の下線タイプのカーソル
+  let &t_SR .= "\e[4 q"
+  if !isdirectory(expand('~/.vim/plugged/vim-plug'))
+    echo 'install vim-plug...'
+    call system('mkdir -p ~/.vim/plugged/vim-plug')
+    call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
+  end
 endif
 
 set encoding=utf-8
@@ -13,15 +19,15 @@ set nocompatible
 set wildmenu
 let mapleader = "\<Space>"
 
-call plug#begin('$HOME/.local/share/nvim/plugged')
-" colorscheme
-Plug 'srcery-colors/srcery-vim'
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/vim-plug',{'dir': '~/.vim/plugged/vim-plug/autoload'}
+Plug 'srcery-colors/srcery-vim' " colorscheme
 
-" more beautiful and powerful syntax
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " more beautiful and powerful syntax
 
 " StatusLine
-" Plug 'glepnir/spaceline.vim'
+" Plug 'devoc09/minline'
+" Plug 'glepnir/spaceline.vim' " StatusLine
 let g:spaceline_git_branch_icon = ' '
 let g:spaceline_seperate_style = 'arrow-fade'
 let g:spaceline_colorscheme = 'srcery'
@@ -29,9 +35,9 @@ let g:spaceline_custom_vim_status =  {"n": "N ","V":"V ","v":"V ","\<C-v>": "V "
 
 " lsp-client
 Plug 'autozimu/LanguageClient-neovim', {
-            \ 'branch': 'next',
-            \ 'do': 'bash install.sh',
-            \ }
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 " for ruby
 Plug 'tpope/vim-endwise', {'for': 'ruby'}
@@ -60,11 +66,10 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Markdown
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
-" easy way to cursol-move
-Plug 'easymotion/vim-easymotion'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} " Markdown
+
+Plug 'easymotion/vim-easymotion' " easy way to cursol-move
 
 " Local Plugins
 Plug '~/dotfiles/VimFiles/my-fzf-conf'
@@ -77,6 +82,7 @@ call plug#end()
 " set number
 set cursorline
 set clipboard=unnamed
+filetype plugin indent on
 set belloff=all
 set splitright
 
@@ -96,7 +102,7 @@ set ignorecase " 検索パターンに大文字小文字を区別しない
 set smartcase " 検索パターンに大文字を含んでいたら大文字小文字を区別する
 set hlsearch
 
-" set background=dark
+" set background=dark " difined srcery color
 syntax enable
 
 " Important!!
@@ -121,23 +127,23 @@ colorscheme srcery
 " treesitter
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-highlight = {
-enable = true,              -- false will disable the whole extension
-disable = { "vue" },  -- list of language that will be disabled
-},
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "vue" },  -- list of language that will be disabled
+  },
 }
 EOF
 
 let g:LanguageClient_serverCommands = {
-            \ 'c': ['ccls', '--log-file=/tmp/cc.log'],
-            \ 'python': ['/usr/local/bin/pyls'],
-            \ 'ruby': ['~/.rbenv/versions/2.6.0/bin/solargraph', 'stdio'],
-            \ 'go': ['~/go/bin/gopls'],
-            \ 'haskell': ['haskell-language-server-wrapper', '--lsp'],
-            \ 'sql': ['~/.nodebrew/current/bin/sql-language-server', 'up', '--method', 'stdio'],
-            \ 'vim': ['~/.nodebrew/current/bin/vim-language-server', '--stdio'],
-            \ }
+    \ 'c': ['ccls', '--log-file=/tmp/cc.log'],
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ 'ruby': ['~/.rbenv/versions/2.6.0/bin/solargraph', 'stdio'],
+    \ 'go': ['~/go/bin/gopls'],
+    \ 'haskell': ['haskell-language-server-wrapper', '--lsp'],
+    \ 'sql': ['~/.nodebrew/current/bin/sql-language-server', 'up', '--method', 'stdio'],
+    \ 'vim': ['~/.nodebrew/current/bin/vim-language-server', '--stdio'],
+    \ }
 
 " note that if you are using Plug mapping you should not use `noremap` mappings.
 nmap <F5> <Plug>(lcn-menu)
@@ -181,6 +187,10 @@ set completeopt=menuone
 set cmdheight=1
 " Defx conf
 nnoremap <silent>sf :Defx <CR>
+
+" Markdown Preview
+noremap <Leader>mp :MarkdownPreview<CR>
+noremap <Leader>ms :MarkdownPreviewStop<CR>
 
 " Easymotion
 let g:EasyMotion_do_mapping = 0 "Disable default mappings

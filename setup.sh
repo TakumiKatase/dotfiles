@@ -1,6 +1,5 @@
 #!/bin/sh
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
-ln -sf ~/dotfiles/tmux/tmux-onedark-theme ~/.tmux/tmux-onedark-theme
 mkdir -p ~/.config/alacritty/
 ln -sf ~/dotfiles/terminals/alacritty.yml ~/.config/alacritty/
 mkdir -p ~/.config/nvim
