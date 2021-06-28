@@ -14,12 +14,12 @@ tmuxset:
 	cp ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
 vimset:
 	# vim
-	curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	ln -sf ~/dotfiles/.vimrc ~/.vimrc
 	# neovim
-	curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	mkdir -p $HOME/.config/nvim
+	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	mkdir -p ~/.config/nvim
 	ln -sf ~/dotfiles/.init.vim ~/.config/nvim/init.vim
 alacrittyset:
-	mkdir -p $HOME/.config/alacritty
+	mkdir -p ~/.config/alacritty
 	ln -sf ~/dotfiles/terminals/alacritty.yml ~/.config/alacritty/
