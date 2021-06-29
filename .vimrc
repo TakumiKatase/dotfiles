@@ -54,9 +54,6 @@ Plug 'ryanoasis/vim-devicons'
 " autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-" rainbow
-Plug 'luochen1990/rainbow'
-let g:rainbow_active = 1
 " auto-pairs
 Plug 'jiangmiao/auto-pairs'
 

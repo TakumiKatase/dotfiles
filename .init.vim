@@ -21,11 +21,7 @@ Plug 'srcery-colors/srcery-vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " StatusLine
-" Plug 'glepnir/spaceline.vim'
-let g:spaceline_git_branch_icon = ' '
-let g:spaceline_seperate_style = 'arrow-fade'
-let g:spaceline_colorscheme = 'srcery'
-let g:spaceline_custom_vim_status =  {"n": "N ","V":"V ","v":"V ","\<C-v>": "V ","i":"I ","R":"R ","s":"S ","t":"T ","c":"C ","!":"SE "}
+Plug 'devoc09/lualine.nvim'
 
 " lsp-client
 Plug 'autozimu/LanguageClient-neovim', {
@@ -50,9 +46,6 @@ Plug 'ryanoasis/vim-devicons'
 " autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-" rainbow
-Plug 'luochen1990/rainbow'
-let g:rainbow_active = 1
 " auto-pairs
 Plug 'jiangmiao/auto-pairs'
 
@@ -70,7 +63,6 @@ Plug 'easymotion/vim-easymotion'
 Plug '~/dotfiles/VimFiles/my-fzf-conf'
 Plug '~/dotfiles/VimFiles/togglewindow'
 Plug '~/dotfiles/VimFiles/my-defx-conf'
-Plug '~/src/vimscript/spaceline.vim'
 
 call plug#end()
 
@@ -126,6 +118,15 @@ highlight = {
 enable = true,              -- false will disable the whole extension
 disable = { "vue" },  -- list of language that will be disabled
 },
+}
+EOF
+
+" lualine
+lua <<EOF
+require'lualine'.setup {
+options = {
+theme = 'srcery'
+}
 }
 EOF
 
