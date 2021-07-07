@@ -133,8 +133,6 @@ let g:LanguageClient_serverCommands = {
             \ 'ruby': ['~/.rbenv/versions/2.6.0/bin/solargraph', 'stdio'],
             \ 'go': ['~/go/bin/gopls'],
             \ 'haskell': ['haskell-language-server-wrapper', '--lsp'],
-            \ 'sql': ['~/.nodebrew/current/bin/sql-language-server', 'up', '--method', 'stdio'],
-            \ 'vim': ['~/.nodebrew/current/bin/vim-language-server', '--stdio'],
             \ }
 
 " note that if you are using Plug mapping you should not use `noremap` mappings.
