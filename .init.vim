@@ -17,7 +17,7 @@ call plug#begin('$HOME/.local/share/nvim/plugged')
 " colorscheme
 Plug 'srcery-colors/srcery-vim'
 
-" more beautiful and powerful syntax
+"more beautiful and powerful syntax
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " StatusLine
@@ -52,9 +52,6 @@ Plug 'jiangmiao/auto-pairs'
 " FuzzyFinder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
-" Markdown
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 " easy way to cursol-move
 Plug 'easymotion/vim-easymotion'
