@@ -133,6 +133,7 @@ let g:LanguageClient_serverCommands = {
             \ 'ruby': ['~/.rbenv/versions/2.6.0/bin/solargraph', 'stdio'],
             \ 'go': ['~/go/bin/gopls'],
             \ 'haskell': ['haskell-language-server-wrapper', '--lsp'],
+            \ 'lua': ['~/.luarocks/bin/lua-lsp'],
             \ }
 
 " note that if you are using Plug mapping you should not use `noremap` mappings.
@@ -197,5 +198,9 @@ command! -count -nargs=* Sterm call s:splitTerm()
 nmap <silent> tt :Vsterm<CR>
 nmap <silent> ts :Sterm<CR>
 tnoremap <silent><C-j> <C-\><C-n>
+
+" tig integration with nvr
+let $GIT_EDITOR = 'nvr -cc split --remote-wait'
+autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
 
 filetype on
