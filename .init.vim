@@ -200,7 +200,22 @@ nmap <silent> ts :Sterm<CR>
 tnoremap <silent><C-j> <C-\><C-n>
 
 " tig integration with nvr
-let $GIT_EDITOR = 'nvr -cc split --remote-wait'
-autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
+let nvrcmd = "nvr --remote-wait --cc 'call NvrBeforeCmd()' -c 'call NvrAfterCmd()'"
+let $VISUAL = nvrcmd
+let $GIT_EDITOR = nvrcmd
+
+command! -count -nargs=* Tig call s:tig_status()
+
+function! s:tig_status() abort
+    call s:open_term('tig status')
+endfunction
+
+function! s:open_term(cmd) abort
+    call execute(printf('%s term://%s', 'vsplit', a:cmd))
+
+    setlocal bufhidden=delete
+    setlocal noswapfile
+    setlocal nobuflisted
+endfunction
 
 filetype on
