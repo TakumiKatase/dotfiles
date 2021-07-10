@@ -49,6 +49,9 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " auto-pairs
 Plug 'jiangmiao/auto-pairs'
 
+" tig
+Plug 'devoc09/vim-tig', { 'on': 'Tig' }
+
 " FuzzyFinder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'

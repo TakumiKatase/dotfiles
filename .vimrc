@@ -68,7 +68,6 @@ Plug 'easymotion/vim-easymotion'
 Plug '~/dotfiles/VimFiles/my-fzf-conf'
 Plug '~/dotfiles/VimFiles/togglewindow'
 Plug '~/dotfiles/VimFiles/my-defx-conf'
-" Plug '~/src/vimscript/minline'
 
 call plug#end()
 
@@ -118,15 +117,9 @@ colorscheme srcery
 " set hidden
 
 let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['~/.nodebrew/current/bin/typescript-language-server', '--stdio'],
-    \ 'typescript': ['~/.nodebrew/current/bin/typescript-language-server', '--stdio'],
-    \ 'javascript.jsx': ['~/.nodebrew/current/bin/typescript-language-server', '--stdio'],
-    \ 'typescript.tsx': ['~/.nodebrew/current/bin/typescript-language-server', '--stdio'],
     \ 'python': ['/usr/local/bin/pyls'],
     \ 'ruby': ['~/.rbenv/versions/2.6.0/bin/solargraph', 'stdio'],
     \ 'go': ['~/go/bin/gopls'],
-    \ 'sql': ['/Users/katasetakumi/.nodebrew/current/bin/sql-language-server', 'up', '--method', 'stdio'],
-    \ 'vim': ['~/.nodebrew/current/bin/vim-language-server', '--stdio'],
     \ }
 
 " note that if you are using Plug mapping you should not use `noremap` mappings.
